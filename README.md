@@ -32,3 +32,4 @@ nd-calloc]
 ```
 
 Search is done via duckduckgo but you can change it to any search engine you want. 
+Inspired by https://github.com/santinic/how2
