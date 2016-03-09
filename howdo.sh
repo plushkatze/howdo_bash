@@ -31,10 +31,21 @@ SEARCH_ENGINE="https://duckduckgo.com/html/?q="
 
 HOWDO_FOLDER="$HOME/.howdo"
 
-if [[ ! -d $HOWDO_FOLDER ]]; then
+if [[ ! -d "$HOWDO_FOLDER" ]]; then
     # no chache folder yet, create it!
     mkdir "$HOWDO_FOLDER"
     echo "Here howdo will cache queries you made." > "$HOWDO_FOLDER/README.txt"
+fi
+
+if [[ ! "$#" -gt 0 ]]; then
+    echo "" >&2
+    echo "howdo_bash: missing question" >&2
+    echo "" >&2
+    echo "Usage: $0 your question in words" >&2
+    echo "" >&2
+    echo "EXAMPLE: $0 fix git detached head" >&2
+    echo "" >&2
+    exit 1
 fi
 
 # this allows for fourteen word queries
