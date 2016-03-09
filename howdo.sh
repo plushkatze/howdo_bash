@@ -38,9 +38,7 @@ if [[ ! -d $HOWDO_FOLDER ]]; then
 fi
 
 # this allows for fourteen word queries
-RAW_PARAMS=$1+$2+$3+$4+$5+$6+$7+$8+$9+${10}+${11}+${12}+${13}+${14}
-
-PARAMS=$(echo $RAW_PARAMS | sed -e s/\+*$//g)
+PARAMS="$(echo ${@} | sed -e s/\ /+/g)"
 
 # we got the question, now see if we already know this question:
 QUESTION_CACHE_FILE=$(echo $PARAMS | sed -e s/\+/_/g)
