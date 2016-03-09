@@ -48,7 +48,6 @@ if [[ ! "$#" -gt 0 ]]; then
     exit 1
 fi
 
-# this allows for fourteen word queries
 PARAMS="$(echo ${@} | sed -e s/\ /+/g)"
 
 # we got the question, now see if we already know this question:
@@ -89,7 +88,7 @@ ANSWER=$(curl -s "$STACK_LINK" \
                -e 's/&gt;/>/g')
 # steps are: 
 # cut everthing above the first answer
-# cut everthing below firts answer
+# cut everthing below first answer
 # tag code open as green
 # tag code close to normal colour
 # tag link open as blue
